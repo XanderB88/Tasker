@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tasker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Tasker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,6 +60,10 @@
                                                     <fontDescription key="titleFontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="18"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7oo-tD-gT0"/>
+                                                    <segue destination="x9j-Ex-K6Q" kind="show" id="EaK-Rv-3zY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -79,6 +83,9 @@
                                                     <fontDescription key="titleFontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SR6-Hx-rFn"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -94,7 +101,7 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="lVR-cZ-HUT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="3VC-86-z8A"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lVR-cZ-HUT" secondAttribute="bottom" constant="10" id="CZm-kc-vQB"/>
@@ -102,16 +109,97 @@
                             <constraint firstItem="lVR-cZ-HUT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="fKc-xy-7gW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="AYk-Hh-X2C" id="P1x-dt-ULi"/>
+                        <outlet property="passwordTextField" destination="Imp-Br-8ok" id="kVC-q3-Ouw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="68.973214285714278"/>
+            <point key="canvasLocation" x="-494" y="-64"/>
+        </scene>
+        <!--Tasks-->
+        <scene sceneID="wex-Da-f5n">
+            <objects>
+                <viewController id="rHc-K9-P0b" customClass="TasksViewController" customModule="Tasker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fRN-AP-gFt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dmj-7r-F3c">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vkt-ay-Ov9">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vkt-ay-Ov9" id="pUm-xn-A0a">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rHc-K9-P0b" id="KRm-qk-v8y"/>
+                                    <outlet property="delegate" destination="rHc-K9-P0b" id="3VH-9O-Jzi"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nag-46-QS8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dmj-7r-F3c" firstAttribute="trailing" secondItem="Nag-46-QS8" secondAttribute="trailing" id="1vj-jF-TxQ"/>
+                            <constraint firstItem="dmj-7r-F3c" firstAttribute="top" secondItem="Nag-46-QS8" secondAttribute="top" id="GXZ-j8-qCU"/>
+                            <constraint firstAttribute="bottom" secondItem="dmj-7r-F3c" secondAttribute="bottom" id="QhN-6G-f8K"/>
+                            <constraint firstItem="dmj-7r-F3c" firstAttribute="leading" secondItem="Nag-46-QS8" secondAttribute="leading" id="gel-z6-BiU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Tasks" id="Sm9-1H-nB4">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="l3b-ea-nYQ">
+                            <connections>
+                                <action selector="addNewItemButton:" destination="rHc-K9-P0b" id="oE0-s5-dgT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="dmj-7r-F3c" id="5eV-a7-e9F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iEQ-PF-6bG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298.5507246376812" y="-64.285714285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Bw-zH-kpo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="x9j-Ex-K6Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="0vV-8c-gF9"/>
+                    <navigationBar key="navigationBar" alpha="0.40000000000000002" contentMode="scaleToFill" id="ddq-pj-bgr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.66667121650000005" green="0.66665846110000004" blue="0.66666716339999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.92157477139999999" green="0.92155748609999999" blue="0.92156922819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="22"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rHc-K9-P0b" kind="relationship" relationship="rootViewController" id="Cs8-oS-wUn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YkP-Ho-ubd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="389.85507246376812" y="-64.285714285714278"/>
         </scene>
     </scenes>
     <resources>
         <image name="task" width="1200" height="1200"/>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
