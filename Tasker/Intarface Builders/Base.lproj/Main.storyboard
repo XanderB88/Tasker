@@ -61,7 +61,7 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="signInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7oo-tD-gT0"/>
+                                                    <action selector="signInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TuR-aZ-Quq"/>
                                                     <segue destination="x9j-Ex-K6Q" kind="show" id="EaK-Rv-3zY"/>
                                                 </connections>
                                             </button>
@@ -84,7 +84,8 @@
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="signUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SR6-Hx-rFn"/>
+                                                    <action selector="signUpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvh-Kk-w5R"/>
+                                                    <segue destination="wB1-z8-YWy" kind="show" identifier="showRegisterScreen" id="cGm-C5-pkC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -116,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-494" y="-64"/>
+            <point key="canvasLocation" x="415.94202898550731" y="-64.285714285714278"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="wex-Da-f5n">
@@ -158,6 +159,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="Sm9-1H-nB4">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="l3b-ea-nYQ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addNewItemButton:" destination="rHc-K9-P0b" id="oE0-s5-dgT"/>
                             </connections>
@@ -169,18 +171,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEQ-PF-6bG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1298.5507246376812" y="-64.285714285714278"/>
+            <point key="canvasLocation" x="2208.695652173913" y="-64.285714285714278"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Bw-zH-kpo">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YkP-Ho-ubd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="x9j-Ex-K6Q" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0vV-8c-gF9"/>
                     <navigationBar key="navigationBar" alpha="0.40000000000000002" contentMode="scaleToFill" id="ddq-pj-bgr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.66667121650000005" green="0.66665846110000004" blue="0.66666716339999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.92157477139999999" green="0.92155748609999999" blue="0.92156922819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" red="0.92157477139999999" green="0.92155748609999999" blue="0.92156922819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="22"/>
@@ -191,9 +194,100 @@
                         <segue destination="rHc-K9-P0b" kind="relationship" relationship="rootViewController" id="Cs8-oS-wUn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YkP-Ho-ubd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389.85507246376812" y="-64.285714285714278"/>
+            <point key="canvasLocation" x="1300" y="-64.285714285714278"/>
+        </scene>
+        <!--Register View Controller-->
+        <scene sceneID="ea5-4Z-wQp">
+            <objects>
+                <viewController id="wB1-z8-YWy" customClass="RegisterViewController" customModule="Tasker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dIK-gc-sPP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="K1c-ob-UvU">
+                                <rect key="frame" x="50" y="80" width="314" height="718"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8tm-fW-nhU">
+                                        <rect key="frame" x="0.0" y="0.0" width="314" height="166.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="task" translatesAutoresizingMaskIntoConstraints="NO" id="60h-ey-5dc">
+                                                <rect key="frame" x="102" y="0.0" width="110" height="110"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="110" id="LQ0-MX-9pX"/>
+                                                    <constraint firstAttribute="width" constant="110" id="NNz-hT-que"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WT-5g-kKT">
+                                                <rect key="frame" x="86.5" y="120" width="141" height="46.5"/>
+                                                <fontDescription key="fontDescription" name="NotoSansOriya-Bold" family="Noto Sans Oriya" pointSize="33"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cdl-4f-SKG">
+                                        <rect key="frame" x="0.0" y="311.5" width="314" height="167.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IDd-DD-SL4">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="34"/>
+                                                <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g3L-e4-nYA">
+                                                <rect key="frame" x="0.0" y="64" width="314" height="34"/>
+                                                <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ua-ed-yAL">
+                                                <rect key="frame" x="0.0" y="128" width="314" height="39.5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="SignUp">
+                                                    <backgroundConfiguration key="background" cornerRadius="20">
+                                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </backgroundConfiguration>
+                                                    <fontDescription key="titleFontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="18"/>
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="UmL-IB-iKM">
+                                        <rect key="frame" x="0.0" y="696.5" width="314" height="21.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IT'S QUICK AND EASY." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA5-Nf-pDJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="21.5"/>
+                                                <fontDescription key="fontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="nA5-Nf-pDJ" firstAttribute="centerY" secondItem="UmL-IB-iKM" secondAttribute="centerY" id="9Mw-bT-UCP"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cdl-4f-SKG" firstAttribute="centerX" secondItem="K1c-ob-UvU" secondAttribute="centerX" id="H5d-Rm-1HN"/>
+                                    <constraint firstItem="8tm-fW-nhU" firstAttribute="top" secondItem="K1c-ob-UvU" secondAttribute="top" id="bVB-kr-OA5"/>
+                                    <constraint firstItem="8tm-fW-nhU" firstAttribute="centerX" secondItem="K1c-ob-UvU" secondAttribute="centerX" id="h7K-PY-KpI"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="U3L-l4-x9j"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U3L-l4-x9j" firstAttribute="bottom" secondItem="K1c-ob-UvU" secondAttribute="bottom" constant="10" id="IjJ-06-J3R"/>
+                            <constraint firstItem="U3L-l4-x9j" firstAttribute="trailing" secondItem="K1c-ob-UvU" secondAttribute="trailing" constant="50" id="WFH-um-RYN"/>
+                            <constraint firstItem="K1c-ob-UvU" firstAttribute="leading" secondItem="U3L-l4-x9j" secondAttribute="leading" constant="50" id="fqm-rI-alP"/>
+                            <constraint firstItem="K1c-ob-UvU" firstAttribute="top" secondItem="U3L-l4-x9j" secondAttribute="top" constant="80" id="w1k-Ru-DGA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YD1-Sx-MKh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qB8-x1-eRh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416" y="689"/>
         </scene>
     </scenes>
     <resources>

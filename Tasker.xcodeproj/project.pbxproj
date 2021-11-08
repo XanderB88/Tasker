@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		114892BA273763420090BD40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 114892B9273763420090BD40 /* GoogleService-Info.plist */; };
+		114892BD2738B5220090BD40 /* ViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114892BC2738B5220090BD40 /* ViewController+Keyboard.swift */; };
+		114892BF2738B63D0090BD40 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114892BE2738B63D0090BD40 /* RegisterViewController.swift */; };
 		116B386A2736056F00F9EF39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B38692736056F00F9EF39 /* AppDelegate.swift */; };
 		116B386C2736056F00F9EF39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B386B2736056F00F9EF39 /* SceneDelegate.swift */; };
 		116B386E2736056F00F9EF39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B386D2736056F00F9EF39 /* LoginViewController.swift */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		114892B9273763420090BD40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		114892BC2738B5220090BD40 /* ViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Keyboard.swift"; sourceTree = "<group>"; };
+		114892BE2738B63D0090BD40 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		116B38662736056F00F9EF39 /* Tasker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116B38692736056F00F9EF39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116B386B2736056F00F9EF39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114892BB2738B4E10090BD40 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				114892BC2738B5220090BD40 /* ViewController+Keyboard.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		116B385D2736056E00F9EF39 = {
 			isa = PBXGroup;
 			children = (
@@ -67,8 +79,10 @@
 		116B38682736056F00F9EF39 /* Tasker */ = {
 			isa = PBXGroup;
 			children = (
+				114892BB2738B4E10090BD40 /* Extension */,
 				116B387D2736058600F9EF39 /* Application */,
 				116B386D2736056F00F9EF39 /* LoginViewController.swift */,
+				114892BE2738B63D0090BD40 /* RegisterViewController.swift */,
 				116C7F182737532B00A34F79 /* TasksViewController.swift */,
 				116B387F2736061200F9EF39 /* Intarface Builders */,
 				116B387E273605A800F9EF39 /* Supporting Files */,
@@ -118,7 +132,6 @@
 				857783B4E0F4D1E0D8CB2E96 /* Pods-Tasker.debug.xcconfig */,
 				B217A2843DB5EA015C3707ED /* Pods-Tasker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,8 +251,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				114892BD2738B5220090BD40 /* ViewController+Keyboard.swift in Sources */,
 				116B386E2736056F00F9EF39 /* LoginViewController.swift in Sources */,
 				116C7F192737532B00A34F79 /* TasksViewController.swift in Sources */,
+				114892BF2738B63D0090BD40 /* RegisterViewController.swift in Sources */,
 				116B386A2736056F00F9EF39 /* AppDelegate.swift in Sources */,
 				116B386C2736056F00F9EF39 /* SceneDelegate.swift in Sources */,
 			);
