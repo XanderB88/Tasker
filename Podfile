@@ -7,5 +7,7 @@ target 'Tasker' do
 
   # Pods for Tasker
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
 end
