@@ -11,7 +11,7 @@ class AlertManager {
     
     static let shared = AlertManager()
     
-    func showAlert(withTitle title: String, withMessage message: String, completion: @escaping (UIViewController) -> () ) {
+    func showAlert(withTitle title: String, withMessage message: String, withVC vc: UIViewController) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
@@ -19,7 +19,7 @@ class AlertManager {
         
         alertController.addAction(OkAction)
         
-        completion(alertController)
+        vc.present(alertController, animated: true, completion: nil)
         
     }
 }
