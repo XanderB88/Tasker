@@ -81,9 +81,9 @@
 		116B38682736056F00F9EF39 /* Tasker */ = {
 			isa = PBXGroup;
 			children = (
-				1173F0872739F0A300F36B87 /* Helpers */,
-				114892BB2738B4E10090BD40 /* Extension */,
 				116B387D2736058600F9EF39 /* Application */,
+				114892BB2738B4E10090BD40 /* Extension */,
+				1173F0872739F0A300F36B87 /* Managers */,
 				116B386D2736056F00F9EF39 /* LoginViewController.swift */,
 				114892BE2738B63D0090BD40 /* RegisterViewController.swift */,
 				116C7F182737532B00A34F79 /* TasksViewController.swift */,
@@ -121,12 +121,12 @@
 			path = "Intarface Builders";
 			sourceTree = "<group>";
 		};
-		1173F0872739F0A300F36B87 /* Helpers */ = {
+		1173F0872739F0A300F36B87 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				1173F0882739F0C200F36B87 /* AlertManager.swift */,
 			);
-			path = Helpers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		A3BF33470EE6E8BC58309C3E /* Frameworks */ = {

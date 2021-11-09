@@ -20,6 +20,12 @@ class LoginViewController: UIViewController {
         
         self.addKeyboardObservers()
         self.hideKeyboardWhenTappedAround()
+        
+        Auth.auth().addStateDidChangeListener { [weak self] auth, user in
+            if user != nil {
+                self?.performSegue(withIdentifier: "showTasks", sender: nil)
+            }
+        }
     }
     
     @IBAction func signInButtonPressed(_ sender: UIButton) {

@@ -11,6 +11,8 @@ class AlertManager {
     
     static let shared = AlertManager()
     
+    init() {}
+    
     func showAlert(withTitle title: String, withMessage message: String, withVC vc: UIViewController) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
