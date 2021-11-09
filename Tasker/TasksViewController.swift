@@ -33,6 +33,8 @@ class TasksViewController: UIViewController {
     @IBAction func addNewItemButton(_ sender: UIBarButtonItem) {
     }
     
+    @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
+    }
 }
 
 

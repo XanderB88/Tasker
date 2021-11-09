@@ -17,6 +17,7 @@
 		116B38732736057400F9EF39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116B38722736057400F9EF39 /* Assets.xcassets */; };
 		116B38762736057400F9EF39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116B38742736057400F9EF39 /* LaunchScreen.storyboard */; };
 		116C7F192737532B00A34F79 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116C7F182737532B00A34F79 /* TasksViewController.swift */; };
+		1173F0892739F0C200F36B87 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1173F0882739F0C200F36B87 /* AlertManager.swift */; };
 		94A51B3F101165773B45B012 /* Pods_Tasker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5F3745D665DE29F1112A63 /* Pods_Tasker.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		116B38752736057400F9EF39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		116B38772736057400F9EF39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		116C7F182737532B00A34F79 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		1173F0882739F0C200F36B87 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		857783B4E0F4D1E0D8CB2E96 /* Pods-Tasker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasker.debug.xcconfig"; path = "Target Support Files/Pods-Tasker/Pods-Tasker.debug.xcconfig"; sourceTree = "<group>"; };
 		B217A2843DB5EA015C3707ED /* Pods-Tasker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tasker.release.xcconfig"; path = "Target Support Files/Pods-Tasker/Pods-Tasker.release.xcconfig"; sourceTree = "<group>"; };
 		CE5F3745D665DE29F1112A63 /* Pods_Tasker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tasker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +81,7 @@
 		116B38682736056F00F9EF39 /* Tasker */ = {
 			isa = PBXGroup;
 			children = (
+				1173F0872739F0A300F36B87 /* Helpers */,
 				114892BB2738B4E10090BD40 /* Extension */,
 				116B387D2736058600F9EF39 /* Application */,
 				116B386D2736056F00F9EF39 /* LoginViewController.swift */,
@@ -116,6 +119,14 @@
 				116B38742736057400F9EF39 /* LaunchScreen.storyboard */,
 			);
 			path = "Intarface Builders";
+			sourceTree = "<group>";
+		};
+		1173F0872739F0A300F36B87 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1173F0882739F0C200F36B87 /* AlertManager.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		A3BF33470EE6E8BC58309C3E /* Frameworks */ = {
@@ -256,6 +267,7 @@
 				116C7F192737532B00A34F79 /* TasksViewController.swift in Sources */,
 				114892BF2738B63D0090BD40 /* RegisterViewController.swift in Sources */,
 				116B386A2736056F00F9EF39 /* AppDelegate.swift in Sources */,
+				1173F0892739F0C200F36B87 /* AlertManager.swift in Sources */,
 				116B386C2736056F00F9EF39 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -62,7 +62,6 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="signInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TuR-aZ-Quq"/>
-                                                    <segue destination="x9j-Ex-K6Q" kind="show" id="EaK-Rv-3zY"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -113,6 +112,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="AYk-Hh-X2C" id="P1x-dt-ULi"/>
                         <outlet property="passwordTextField" destination="Imp-Br-8ok" id="kVC-q3-Ouw"/>
+                        <segue destination="x9j-Ex-K6Q" kind="show" identifier="showTasks" id="q7e-tv-sNP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -158,6 +158,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="Sm9-1H-nB4">
+                        <barButtonItem key="leftBarButtonItem" title="SignOut" id="1UA-g0-Rsi">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="signOutButtonPressed:" destination="rHc-K9-P0b" id="MbU-hz-IER"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="l3b-ea-nYQ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -176,7 +182,6 @@
         <!--Navigation Controller-->
         <scene sceneID="4Bw-zH-kpo">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YkP-Ho-ubd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="x9j-Ex-K6Q" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0vV-8c-gF9"/>
@@ -194,6 +199,7 @@
                         <segue destination="rHc-K9-P0b" kind="relationship" relationship="rootViewController" id="Cs8-oS-wUn"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YkP-Ho-ubd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1300" y="-64.285714285714278"/>
         </scene>
@@ -249,6 +255,9 @@
                                                     <fontDescription key="titleFontDescription" name="NotoSansOriya" family="Noto Sans Oriya" pointSize="18"/>
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signUpButtonPressed:" destination="wB1-z8-YWy" eventType="touchUpInside" id="eOx-pp-40A"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -284,12 +293,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YD1-Sx-MKh"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="IDd-DD-SL4" id="U19-Xp-Bjm"/>
+                        <outlet property="passwordTextField" destination="g3L-e4-nYA" id="aNu-jN-J9K"/>
+                        <segue destination="x9j-Ex-K6Q" kind="show" identifier="signUpTasks" id="tHE-JX-nbc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qB8-x1-eRh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="416" y="689"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="tHE-JX-nbc"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="task" width="1200" height="1200"/>
         <systemColor name="systemBackgroundColor">
