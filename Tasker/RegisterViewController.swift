@@ -26,7 +26,9 @@ class RegisterViewController: UIViewController {
                       let password = passwordTextField.text,
                           email != "",
                           password != "" else {
-                              return AlertManager.shared.showAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields")
+                              return AlertManager.shared.showAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields", completion: { [weak self] alertController in
+                                  self?.present(alertController, animated: true, completion: nil)
+                              })
                 }
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in

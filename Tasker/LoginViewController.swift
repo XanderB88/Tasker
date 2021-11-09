@@ -27,16 +27,23 @@ class LoginViewController: UIViewController {
               let password = passwordTextField.text,
                   email != "",
                   password != "" else {
-                      return AlertManager.shared.showAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields")
+                      return AlertManager.shared.showAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields", completion: { [weak self] alertController in
+                          self?.present(alertController, animated: true, completion: nil)
+                      })
         }
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             if let error = error {
                 
                 if error.localizedDescription == "The email address is badly formatted." {
-                    AlertManager.shared.showAlert(withTitle: "Error", withMessage: "Please check the email address, it has wrong format")
+                    AlertManager.shared.showAlert(withTitle: "Error", withMessage: "Please check the email address, it has wrong format", completion: { [weak self] alertController in
+                        self?.present(alertController, animated: true, completion: nil)
+                    })
                 } else {
-                    AlertManager.shared.showAlert(withTitle: "Error", withMessage: "User does not exist, please check your email or password.")
+                    
+                    AlertManager.shared.showAlert(withTitle: "Error", withMessage: "User does not exist, please check your email or password.", completion: { [weak self] alertController in
+                        self?.present(alertController, animated: true, completion: nil)
+                    })
                 }
                 
             } else {
