@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var alertManager = AlertManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +27,14 @@ class RegisterViewController: UIViewController {
                       let password = passwordTextField.text,
                           email != "",
                           password != "" else {
-                              return AlertManager.shared.showAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields", withVC: self)
+                              return alertManager.showErrorAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields", withVC: self)
                 }
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
+
                 if error.localizedDescription == "The email address is badly formatted." {
-                    AlertManager.shared.showAlert(withTitle: "Error", withMessage: "Please check the email address, it has wrong format", withVC: self)
+                    self.alertManager.showErrorAlert(withTitle: "Error", withMessage: "Please check the email address, it has wrong format", withVC: self)
                 }
             } else {
                 self.performSegue(withIdentifier: "signUpTasks", sender: self)

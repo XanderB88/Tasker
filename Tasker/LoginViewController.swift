@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var alertManager = AlertManager()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +35,19 @@ class LoginViewController: UIViewController {
               let password = passwordTextField.text,
                   email != "",
                   password != "" else {
-                      return AlertManager.shared.showAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields", withVC: self)
+                      return alertManager.showErrorAlert(withTitle: "Fields are not filling", withMessage: "Please fill in all fields", withVC: self)
         }
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             if let error = error {
                 
+                guard let self = self else { return }
+                
                 if error.localizedDescription == "The email address is badly formatted." {
-                    AlertManager.shared.showAlert(withTitle: "Error", withMessage: "Please check the email address, it has wrong format", withVC: self!)
+                    self.alertManager.showErrorAlert(withTitle: "Error", withMessage: "Please check the email address, it has wrong format", withVC: self)
                 } else {
                     
-                    AlertManager.shared.showAlert(withTitle: "Error", withMessage: "User does not exist, please check your email or password.", withVC: self!)
+                    self.alertManager.showErrorAlert(withTitle: "Error", withMessage: "User does not exist, please check your email or password.", withVC: self)
                 }
                 
             } else {

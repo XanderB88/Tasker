@@ -13,6 +13,8 @@ class TasksViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var alertManager = AlertManager()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class TasksViewController: UIViewController {
     }
 
     @IBAction func addNewItemButton(_ sender: UIBarButtonItem) {
+        alertManager.showAddingAlert(withVC: self)
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
