@@ -22,6 +22,10 @@ class LoginViewController: UIViewController {
         
         self.addKeyboardObservers()
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         Auth.auth().addStateDidChangeListener { [weak self] auth, user in
             if user != nil {

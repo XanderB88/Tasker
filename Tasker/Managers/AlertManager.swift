@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AlertManager {
     
@@ -21,7 +22,7 @@ class AlertManager {
         
     }
     
-    func showAddingAlert(withVC vc: UIViewController) {
+    func showAddingAlert(withUser user: User, withRef ref: DatabaseReference, withVC vc: UIViewController) {
         let alertController = UIAlertController(title: "New Task", message: "Add a new task", preferredStyle: .alert)
         
         alertController.addTextField()
@@ -29,6 +30,9 @@ class AlertManager {
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let textField = alertController.textFields?.first, textField.text != "" else { return }
             
+            let task = Task(title: textField.text!, userID: user.uid)
+            let taskRef = ref.child(task.title.lowercased())
+            taskRef.setValue(task.convertToDictionary())
             
         }
         

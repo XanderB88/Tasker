@@ -12,8 +12,8 @@ struct User {
     var uid: String
     var email: String
     
-    init(user: User) {
+    init(user: Firebase.User) {
         self.uid = user.uid
-        self.email = user.email
+        self.email = user.email!
     }
 }

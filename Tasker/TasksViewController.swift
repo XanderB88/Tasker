@@ -14,17 +14,22 @@ class TasksViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var alertManager = AlertManager()
+    var user: User!
+    var ref: DatabaseReference!
+    var tasks = Array<Task>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        navigationController?.navigationBar.barTintColor = UIColor.green
-       
+        guard let currentUser = Auth.auth().currentUser else { return }
+        
+        user = User(user: currentUser)
+        ref = Database.database().reference(withPath: "users").child(String(user.uid)).child("tasks")
     }
 
     @IBAction func addNewItemButton(_ sender: UIBarButtonItem) {
-        alertManager.showAddingAlert(withVC: self)
+        alertManager.showAddingAlert(withUser: user, withRef: ref, withVC: self)
     }
     
     @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
