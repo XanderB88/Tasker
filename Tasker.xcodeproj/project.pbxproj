@@ -10,6 +10,8 @@
 		114892BA273763420090BD40 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 114892B9273763420090BD40 /* GoogleService-Info.plist */; };
 		114892BD2738B5220090BD40 /* ViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114892BC2738B5220090BD40 /* ViewController+Keyboard.swift */; };
 		114892BF2738B63D0090BD40 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114892BE2738B63D0090BD40 /* RegisterViewController.swift */; };
+		1167E1C5273B433800E0B630 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167E1C4273B433800E0B630 /* User.swift */; };
+		1167E1C7273B434A00E0B630 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1167E1C6273B434A00E0B630 /* Task.swift */; };
 		116B386A2736056F00F9EF39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B38692736056F00F9EF39 /* AppDelegate.swift */; };
 		116B386C2736056F00F9EF39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B386B2736056F00F9EF39 /* SceneDelegate.swift */; };
 		116B386E2736056F00F9EF39 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B386D2736056F00F9EF39 /* LoginViewController.swift */; };
@@ -25,6 +27,8 @@
 		114892B9273763420090BD40 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		114892BC2738B5220090BD40 /* ViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		114892BE2738B63D0090BD40 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1167E1C4273B433800E0B630 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1167E1C6273B434A00E0B630 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		116B38662736056F00F9EF39 /* Tasker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tasker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116B38692736056F00F9EF39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116B386B2736056F00F9EF39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		1167E1C3273B432500E0B630 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1167E1C4273B433800E0B630 /* User.swift */,
+				1167E1C6273B434A00E0B630 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		116B385D2736056E00F9EF39 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +94,7 @@
 		116B38682736056F00F9EF39 /* Tasker */ = {
 			isa = PBXGroup;
 			children = (
+				1167E1C3273B432500E0B630 /* Models */,
 				116B387D2736058600F9EF39 /* Application */,
 				114892BB2738B4E10090BD40 /* Extension */,
 				1173F0872739F0A300F36B87 /* Managers */,
@@ -266,8 +280,10 @@
 				116B386E2736056F00F9EF39 /* LoginViewController.swift in Sources */,
 				116C7F192737532B00A34F79 /* TasksViewController.swift in Sources */,
 				114892BF2738B63D0090BD40 /* RegisterViewController.swift in Sources */,
+				1167E1C5273B433800E0B630 /* User.swift in Sources */,
 				116B386A2736056F00F9EF39 /* AppDelegate.swift in Sources */,
 				1173F0892739F0C200F36B87 /* AlertManager.swift in Sources */,
+				1167E1C7273B434A00E0B630 /* Task.swift in Sources */,
 				116B386C2736056F00F9EF39 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
