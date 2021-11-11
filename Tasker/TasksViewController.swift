@@ -72,18 +72,25 @@ extension TasksViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
+        // Cell configuration
         cell.backgroundColor = .clear
+        cell.selectionStyle = .none
         
         var content = cell.defaultContentConfiguration()
+        let task = tasks[indexPath.row]
+        let isCompleted = task.completed
         
         // Configure content.
-        content.text = tasks[indexPath.row].title
+        content.text = task.title
         
         // Customize appearance.
         content.textProperties.color = .black
         cell.contentConfiguration = content
+        
+        toggleCompletion(forCell: cell, isCompleted: isCompleted)
         
         return cell
     }
@@ -93,4 +100,32 @@ extension TasksViewController: UITableViewDataSource {
 // MARK: - Table view delegate
 extension TasksViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        
+        let task = tasks[indexPath.row]
+        let isCompleted = !task.completed
+        
+        toggleCompletion(forCell: cell, isCompleted: isCompleted)
+        task.ref?.updateChildValues(["completed": isCompleted])
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            let task = tasks[indexPath.row]
+            task.ref?.removeValue()
+        }
+    }
+    
+    func toggleCompletion(forCell cell: UITableViewCell, isCompleted: Bool) {
+        
+        cell.accessoryType = isCompleted ? .checkmark: .none
+    }
 }
