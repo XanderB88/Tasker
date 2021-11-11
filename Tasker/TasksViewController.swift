@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class TasksViewController: UIViewController {
-
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,13 +21,34 @@ class TasksViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         guard let currentUser = Auth.auth().currentUser else { return }
         
         user = User(user: currentUser)
         ref = Database.database().reference(withPath: "users").child(String(user.uid)).child("tasks")
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        ref.observe(.value) { snapshot in
+            var _tasks = Array<Task>()
+            for item in snapshot.children {
+                let task = Task(snapshot: item as! DataSnapshot)
+                _tasks.append(task)
+            }
+            
+            self.tasks = _tasks
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        ref.removeAllObservers()
+    }
+    
     @IBAction func addNewItemButton(_ sender: UIBarButtonItem) {
         alertManager.showAddingAlert(withUser: user, withRef: ref, withVC: self)
     }
@@ -36,7 +57,7 @@ class TasksViewController: UIViewController {
         do {
             try Auth.auth().signOut()
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
         dismiss(animated: true)
     }
@@ -45,9 +66,9 @@ class TasksViewController: UIViewController {
 
 // MARK: - Table view data source
 extension TasksViewController: UITableViewDataSource {
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +76,15 @@ extension TasksViewController: UITableViewDataSource {
         
         cell.backgroundColor = .clear
         
-        cell.textLabel?.text = "Number of Row \(indexPath.row)"
+        var content = cell.defaultContentConfiguration()
+        
+        // Configure content.
+        content.text = tasks[indexPath.row].title
+        
+        // Customize appearance.
+        content.textProperties.color = .black
+        cell.contentConfiguration = content
+        
         return cell
     }
     

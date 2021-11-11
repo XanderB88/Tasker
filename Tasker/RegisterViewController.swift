@@ -26,6 +26,14 @@ class RegisterViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.emailTextField.text = ""
+        self.passwordTextField.text = ""
+        
+    }
+    
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text,
